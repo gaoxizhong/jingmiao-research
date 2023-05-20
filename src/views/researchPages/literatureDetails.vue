@@ -87,7 +87,7 @@
               <p>{{infoDetail.year}}</p>
             </div>
             <div class="asub-box">
-              <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection()"><i :class="infoDetail.is_collection == 2 ?'el-icon-star-off':'el-icon-star-on'"></i>{{infoDetail.is_collection == 2 ? '收藏' :'取消收藏'}}</a>
+              <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection()"><i :class="infoDetail.is_collection === 1 ?'el-icon-star-on':'el-icon-star-off'"></i>{{infoDetail.is_collection === 1 ? '取消收藏' :'收藏'}}</a>
               <a :href="infoDetail.pdf_url?infoDetail.pdf_url:'javascript:0;'" class="asub-zaixian" :target="infoDetail.pdf_url?'_blank':''" @click.stop="goToyuedu($event,infoDetail.pdf_url)" v-if="infoDetail.pdf_url"><i class="el-icon-reading"></i>在线阅读</a>
 
             </div>
@@ -280,10 +280,11 @@
       clickCollection(){
         let that = this;
         let uid = that.uid;
-        let md5 = that.infoDetail.periodical_md5;
         let col = that.infoDetail.is_collection;
         let tag = '';
         let title = that.infoDetail.title;
+        let uniq_id = that.infoDetail.uniq_id;
+
         if(col == 1){
           // 1、已收藏  2、未收藏
           tag = 'cancelCollection';
@@ -299,7 +300,7 @@
         that.is_return = false;
         let p = {
           uid,
-          md5,
+          md5: uniq_id,
           tag,
           title
         }

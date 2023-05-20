@@ -38,7 +38,7 @@
           </a>
           <div class="item-btn-box">
             <div class="asub-box">
-              <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection(index,item.is_collection,item.title,item.uniq_id)"><i :class="item.is_collection == 2 ?'el-icon-star-off':'el-icon-star-on'"></i>{{item.is_collection == 2 ? '收藏' :'取消收藏'}}</a>
+              <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection(index,item.is_collection,item.title,item.uniq_id)"><i :class="item.is_collection === 1 ?'el-icon-star-on':'el-icon-star-off'"></i>{{item.is_collection === 1 ? '取消收藏' :'收藏'}}</a>
               <a :href="item.periodical_url" target="_blank" class="asub-zaixian" v-if="item.periodical_url"><i class="el-icon-reading"></i>原文链接</a>
             </div>
 
@@ -140,7 +140,7 @@
   export default {
     data(){
       return {
-        uid:'',
+        uid: window.localStorage.getItem('uid'),
         is_s:false,
         is_view: true,
         is_titleTab:'1',

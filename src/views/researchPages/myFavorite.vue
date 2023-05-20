@@ -126,7 +126,7 @@
               <p>{{infoDetail.year}}</p>
             </div> -->
             <div class="asub-box">
-              <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection"><i :class="infoDetail.is_collection == 2 ?'el-icon-star-off':'el-icon-star-on'"></i>{{infoDetail.is_collection == 2 ? '收藏' :'取消收藏'}}</a>
+              <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection"><i :class="infoDetail.is_collection === 1 ?'el-icon-star-on':'el-icon-star-off'"></i>{{infoDetail.is_collection === 1 ? '取消收藏' :'收藏'}}</a>
               <a :href="infoDetail.pdf_url?infoDetail.pdf_url:'javascript:0;'" class="asub-zaixian" :target="infoDetail.periodical_url?'_blank':''" @click.stop="goToyuedu($event,infoDetail.pdf_url)" v-if="infoDetail.pdf_url"><i class="el-icon-reading"></i>原文链接</a>            
             </div>
           </div>
@@ -432,13 +432,8 @@
       getDetail(i,info) {
         let that = this;
         console.log(info)
-        let uid = that.uid;
         that.sel_tab = i;
-        let pearms = {
-          periodical_md5:info.periodical_md5?info.periodical_md5:'',
-          uniq_id:info.uniq_id?info.uniq_id:'',
-          uid
-        };
+   
         const loading = this.$loading({
           lock: true,
           text: "Loading",
@@ -446,7 +441,19 @@
           background: "rgba(0, 0, 0, 0.1)",
           target: document.querySelector("body")
         });
-        that.infoDetail = {};
+        setTimeout(() =>{
+          that.infoDetail = info;
+          loading.close();
+          // 回到顶部的方法。
+          window.scrollTo(0,0);
+        },1000)
+        return
+        let uid = that.uid;
+        let pearms = {
+          periodical_md5:info.periodical_md5?info.periodical_md5:'',
+          uniq_id:info.uniq_id?info.uniq_id:'',
+          uid
+        };
         literatureDetails(pearms).then(res => {
           loading.close();
           // 回到顶部的方法。

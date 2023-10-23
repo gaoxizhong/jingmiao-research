@@ -1714,7 +1714,7 @@
           if( !that.acc_tag || that.acc_tag == ''){
            return
           }
-          if(that.acc_tag == 'relevant_scholars'){
+          if(that.acc_tag == 'relevant_scholars'){ // 相关学者
             arr.push(that.tagInfo[0].key)
           }else{
             if(that.tagInfo){

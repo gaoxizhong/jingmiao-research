@@ -85,7 +85,13 @@
             <div class="one_info clearfix" v-if="infoDetail.author_list">
               <label>作者：</label>
               <p>
-                <span v-for="(items,idx) in infoDetail.author_list" :key="idx" @click.stop="goToauthor(items,infoDetail.title)">{{items}}</span>
+                <!-- <span v-for="(items,idx) in infoDetail.author_list" :key="idx" @click.stop="goToauthor(items,infoDetail.title)">{{items}}</span> -->
+                <span v-for="(items,idx) in infoDetail.author_list" :key="idx">
+                  <span v-if="infoDetail.author_org">
+                    <a href="javascript:0;" @click.stop="goToauthor(items,infoDetail.title)">{{ items }}</a>
+                  </span>
+                  <span class="zuozhe-span" v-else>{{items}}</span>
+                </span>
               </p>
             </div>
             <div class="one_info clearfix" v-if="infoDetail.cn_name">
@@ -727,14 +733,19 @@
     justify-content: flex-start;
     line-height: 20px;
   }
-  .one_info p span{
+  .one_info p>span{
     display: inline-block;
-    margin-right: 0.1rem;
+    margin-right: 0.3rem;
     cursor: pointer;
-    margin-right: 1rem;
   }
-  .one_info p span:hover{
+  .one_info p a:hover{
     color: #3664D9;
+  }
+  .one_info p>span .zuozhe-span{
+    font-size: 14px;
+    color: #a7a7a7;
+    display: flex;
+    flex-wrap: nowrap;
   }
   .asub-box {
     width: 100%;

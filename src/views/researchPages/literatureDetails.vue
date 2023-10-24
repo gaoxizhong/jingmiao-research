@@ -44,13 +44,21 @@
             <div class="one_info clearfix" v-if="infoDetail.keyword_list">
               <label>关键词：</label>
               <p>
-                <span v-for="(items,idx) in infoDetail.keyword_list" :key="idx" @click.stop="clickKeyword(items)">{{items}}</span>
+                <span v-for="(items,idx) in infoDetail.keyword_list" :key="idx">
+                  <a href="javascript:0;" @click.stop="clickKeyword(items)">{{ items }}</a>
+                </span>
               </p>
             </div>
             <div class="one_info clearfix" v-if="infoDetail.author_list">
               <label>作者：</label>
               <p>
-                <span v-for="(items,idx) in infoDetail.author_list" :key="idx" @click.stop="goToauthor(items,infoDetail.title)">{{items}}</span>
+                <!-- <span v-for="(items,idx) in infoDetail.author_list" :key="idx" @click.stop="goToauthor(items,infoDetail.title)">{{items}}</span> -->
+                <span v-for="(items,idx) in infoDetail.author_list" :key="idx">
+                  <span v-if="infoDetail.author_org">
+                    <a href="javascript:0;" @click.stop="goToauthor(items,infoDetail.title)">{{ items }}</a>
+                  </span>
+                  <span class="zuozhe-span" v-else>{{items}}</span>
+                </span>
               </p>
             </div>
             <div class="one_info clearfix" v-if="infoDetail.album">
@@ -125,7 +133,15 @@
                   <div class="list-item-z">
                     <label class="zuozhe-box">作者：</label>
                     <div class="tap-top-span">
-                      <a href="javascript:0;" v-for="(items,idx) in item.author_list" :key="idx" @click.stop="goToauthor(items,item.title)">{{items}}</a>
+                      <!-- <a href="javascript:0;" v-for="(items,idx) in item.author_list" :key="idx" @click.stop="goToauthor(items,item.title)">{{items}}</a> -->
+
+                      <span v-for="(items,idx) in item.author_list" :key="idx">
+                        <span v-if="item.author_org">
+                          <a href="javascript:0;" @click.stop="goToauthor(items,item.title)">{{ items }}</a>
+                        </span>
+                        <span class="zuozhe-span" v-else>{{items}}</span>
+                      </span>
+
                     </div>
                   </div>
                 </a>
@@ -200,7 +216,13 @@
             </div>
           </div>
           <div class="xgxz-listbox">
-            <a href="javascript:0;" v-for="(item,index) in infoDetail.author_list" :key="index" @click.stop="goToauthor(item,infoDetail.title)">{{item}}</a>
+            <!-- <a href="javascript:0;" v-for="(item,index) in infoDetail.author_list" :key="index" @click.stop="goToauthor(item,infoDetail.title)">{{item}}</a> -->
+            <span v-for="(items,idx) in infoDetail.author_list" :key="idx">
+              <span v-if="infoDetail.author_org">
+                <a href="javascript:0;" @click.stop="goToauthor(items,infoDetail.title)">{{ items }}</a>
+              </span>
+              <span class="zuozhe-span" v-else>{{items}}</span>
+            </span>
           </div>
 
         </div>
@@ -673,13 +695,18 @@
     line-height: 20px;
     word-break: break-word; 
   }
-  .one_info p span{
+  .one_info p>span{
     display: inline-block;
-    margin-right: 0.1rem;
     cursor: pointer;
-    margin-right: 1rem;
+    margin-right: 0.3rem;
   }
-  .one_info p span:hover{
+  .one_info p>span .zuozhe-span{
+    font-size: 14px;
+    color: #a7a7a7;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .one_info p a:hover{
     color: #3664D9;
   }
   .asub-box {
@@ -715,7 +742,7 @@
     display: flex;
     flex-wrap: wrap;
   }
-  .xgxz-listbox>a{
+  .xgxz-listbox a{
     width: auto;
     padding-right: 1rem;
     font-size: 14px;
@@ -723,8 +750,16 @@
     color: #333333;
     line-height: 2.3rem;
   }
-  .xgxz-listbox>a:hover{
+  .xgxz-listbox a:hover{
     color: #3664D9;
+  }
+  .xgxz-listbox .zuozhe-span{
+    color: #a7a7a7;
+    width: auto;
+    padding-right: 1rem;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 2.3rem;
   }
   .popular-listbox{
     width: 100%;
@@ -875,15 +910,22 @@
     align-items: center;
     word-break: break-word; 
   }
-  .list-item .list-item-z .tap-top-span>a{
+  .list-item .list-item-z .tap-top-span a{
     font-size: 14px;
     margin-right: 0.2rem;
     color: #666;
     display: flex;
     flex-wrap: nowrap;
   }
-  .list-item .list-item-z .tap-top-span>a:hover{
+  .list-item .list-item-z .tap-top-span a:hover{
     color: #3664D9;
+  }
+  .list-item .list-item-z .tap-top-span .zuozhe-span{
+    font-size: 14px;
+    margin-right: 0.3rem;
+    color: #a7a7a7;
+    display: flex;
+    flex-wrap: nowrap;
   }
   .item-btn-box{
     width: 100%;

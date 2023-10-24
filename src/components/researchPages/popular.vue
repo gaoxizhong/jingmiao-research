@@ -26,7 +26,16 @@
             <div class="list-item-z" v-if="item.author_list">
               <label class="zuozhe-box">作者：</label>
               <div class="tap-top-span">
-                <a href="javascript:0;" v-for="(items,idx) in item.author_list" :key="idx" @click.stop="goToauthor(items,item.title)">{{items}}</a>
+
+                <!-- <a href="javascript:0;" v-for="(items,idx) in item.author_list" :key="idx" @click.stop="goToauthor(items,item.title)">{{items}}</a> -->
+
+                <span v-for="(items,idx) in item.author_list" :key="idx">
+                  <span v-if="item.author_org">
+                    <a href="javascript:0;" @click.stop="goToauthor(items,item.title)">{{ items }}</a>
+                  </span>
+                  <span class="zuozhe-span" v-else>{{items}}</span>
+                </span>
+                
               </div>
             </div>
             <div class="list-item-z" v-if="item.keyword_list">
@@ -542,15 +551,22 @@
     flex-wrap: wrap;
     align-items: center;
   }
-  .list-item .list-item-z .tap-top-span>a{
+  .list-item .list-item-z .tap-top-span a{
     font-size: 14px;
     margin-right: 0.3rem;
     color: #666;
     display: flex;
     flex-wrap: nowrap;
   }
-  .list-item .list-item-z .tap-top-span>a:hover{
+  .list-item .list-item-z .tap-top-span a:hover{
     color: #3664D9;
+  }
+ .list-item .list-item-z .tap-top-span .zuozhe-span{
+    font-size: 14px;
+    margin-right: 0.3rem;
+    color: #a7a7a7;
+    display: flex;
+    flex-wrap: nowrap;
   }
   .item-btn-box{
     width: 100%;

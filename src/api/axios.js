@@ -5,8 +5,10 @@ import config from './config'
 import store from '../store'
 import router from '../router'
 
+//本地调式使用：
 // const baseURL = config.baseURL.pro;
 
+//打包使用：
 const httpUrl = window.location.host;
 const baseURL = 'http://' + httpUrl +'/jmjk/';
 

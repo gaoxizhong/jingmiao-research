@@ -1706,7 +1706,7 @@
         myChart.setOption(option);
       },
       // 获取全部文献
-      getXkfxEsDocument(){
+      async getXkfxEsDocument(){
         let that = this;
         let arr = [];
         let sug = this.sug;
@@ -1736,12 +1736,16 @@
           p.values =  arr.join(',');
           p.tag = that.acc_tag;
         }
-        getXkfxEsDocument(p).then(res => {
+        await getXkfxEsDocument(p).then(res => {
           if (res.data.code == 0) {
             // let newData = that.tableData.concat(res.data.data.list);
             that.tableData = res.data.data.list;
             that.total_page = res.data.data.total_page;
             that.total = res.data.data.total;
+            if(that.total == 0){
+              that.sug = '1';
+              that.getXkfxEsDocument();
+            }
           }
         })
         .catch(e => {

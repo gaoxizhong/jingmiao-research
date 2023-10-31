@@ -72,7 +72,7 @@
             </div>
 
             <div class="one_info clearfix" v-if="infoDetail.doi">
-              <label>dol:</label>
+              <label>doi:</label>
               <p>{{infoDetail.doi}}</p>
             </div>
 
@@ -305,7 +305,8 @@
         })
         let pearms ={
           uid: that.uid,
-          md5: sel_collection_info.uniq_id,
+          uniq_id: sel_collection_info.uniq_id,
+          pmid: sel_collection_info.pmid,
           tags,
         }
         console.log(pearms)
@@ -340,6 +341,7 @@
         let that = this;
         let uid = that.uid;
         let uniq_id = that.infoDetail.uniq_id;
+        let pmid = that.infoDetail.pmid;
         let col = that.infoDetail.is_collection;
         let tag = '';
         let title = that.infoDetail.title;
@@ -353,7 +355,8 @@
         }
         let p = {
           uid,
-          md5: uniq_id,
+          uniq_id,
+          pmid,
           tag,
           title
         }

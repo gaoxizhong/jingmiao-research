@@ -113,7 +113,7 @@
           <!-- 分页展示 结束 -->
           <!-- 分页展示 -->
           <div class="pagination-box">
-            <el-pagination background @current-change="handleCurrentChange" layout="total, prev, pager, next"
+            <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next"
             :total="count"
             :page-size="pageSize"
             :current-page='current_page'>

@@ -30,7 +30,7 @@
         <div class="grid-content" id="myCollectionList">
           <div class="userinfo-title">我的收藏</div>
           <div class="content-left-1">
-            <p  v-for="(item,index) in myCollectionList" :key='index' :title="item.title" @click="clickListItem(index,item.periodical_md5?item.periodical_md5:'',item.uniq_id?item.uniq_id:'',item.pmid?item.pmid:'')">
+            <p  v-for="(item,index) in myCollectionList" :key='index' :title="item.title" @click="clickListItem(index,item.periodical_md5?item.periodical_md5:'',item.uniq_id?item.uniq_id:'',item.PMID?item.PMID:'')">
               {{item.title}}
             </p >
           </div>
@@ -187,14 +187,14 @@
       clickListItem(i,p,u,pm){
         let periodical_md5 = p;
         let uniq_id = u;
-        let pmid = pm;
+        let PMID = pm;
         // 新页面打开
         this.$router.push({  //核心语句
           path:'/literatureDetails',   //跳转的路径
           query:{           //路由传参时push和query搭配使用 ，作用时传递参数
             periodical_md5,
             uniq_id,
-            pmid
+            PMID
           }
         })
       },

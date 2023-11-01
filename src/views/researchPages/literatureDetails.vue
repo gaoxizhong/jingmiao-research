@@ -118,7 +118,7 @@
             <div class="list-itembox">
               <!-- ===  单条列表 开始 ===  -->
               <div class="list-item" v-for="(item,index) in docRecommendList" :key="index">
-                <a href="javascript:0;"   @click.stop="goToDetails(item.periodical_md5?item.periodical_md5:'',item.uniq_id?item.uniq_id:'',item.pmid?item.pmid:'')">
+                <a href="javascript:0;"   @click.stop="goToDetails(item.periodical_md5?item.periodical_md5:'',item.uniq_id?item.uniq_id:'',item.PMID?item.PMID:'')">
                   <div class="listitems-b">
                     <div class="list-item-title" :title="item.title">{{item.title}}</div>
                     <span>发表于: <span style="padding-left: 0.1rem;">{{item.year}}</span></span>
@@ -269,7 +269,7 @@
         uid:'',
         periodical_md5:'',
         uniq_id:'',
-        pmid:'',
+        PMID:'',
         viewHeight: "",
         infoDetail: {},
         title: "",
@@ -287,9 +287,9 @@
       this.viewWidth = getViewportSize.width;
       this.periodical_md5 = this.$route.query.periodical_md5;
       this.uniq_id = this.$route.query.uniq_id;
-      this.pmid = this.$route.query.pmid;
+      this.PMID = this.$route.query.PMID;
       // this.uid = window.localStorage.getItem('uid');
-      this.getDetail(this.periodical_md5,this.uniq_id,this.pmid);
+      this.getDetail(this.periodical_md5,this.uniq_id,this.PMID);
     },
     methods: {
       // 点击关键词
@@ -313,7 +313,7 @@
         let tag = '';
         let title = that.infoDetail.title;
         let uniq_id = that.infoDetail.uniq_id;
-        let pmid = that.infoDetail.pmid;
+        let PMID = that.infoDetail.PMID;
         
         if(col == 1){
           // 1、已收藏  2、未收藏
@@ -331,7 +331,7 @@
         let p = {
           uid,
           uniq_id,
-          pmid,
+          PMID,
           tag,
           title
         }
@@ -399,13 +399,13 @@
         let that = this;
         let periodical_md5 = i;
         let uniq_id = u;
-        let pmid = pm;
+        let PMID = pm;
         
         let uid = that.uid;
         let pearms = {
           periodical_md5,
           uniq_id,
-          pmid,
+          PMID,
           uid
         };
         const loading = this.$loading({
@@ -483,14 +483,14 @@
         let that = this;
         let periodical_md5 = i;
         let uniq_id = u;
-        let pmid = pm;
+        let PMID = pm;
         this.$emit('setsickNess','');
         this.$router.push({  //核心语句
           path:'/literatureDetails',   //跳转的路径
           query:{           //路由传参时push和query搭配使用 ，作用时传递参数
             periodical_md5,
             uniq_id,
-            pmid
+            PMID
           }
         })
       },

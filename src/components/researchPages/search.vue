@@ -50,7 +50,7 @@
                   <!-- <a href="javascript:0;" v-for="(items,idx) in item.author_list" :key="idx" @click.stop="goToauthor(items,item.title)" v-html="items"></a> -->
 
                   <span v-for="(items,idx) in item.author_list" :key="idx">
-                    <span v-if="item.author_org">
+                    <span v-if="item.author_org && item.author_org.length">
                       <a href="javascript:0;" @click.stop="goToauthor(items,item.title)" v-html="items"></a>
                     </span>
                     <span class="zuozhe-span" v-else v-html="items"></span>

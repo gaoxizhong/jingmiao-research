@@ -36,35 +36,35 @@
                 <div class="list-item-text">
                   <div v-html=" item.abstract?item.abstract:'暂无' "></div>
                 </div>
-                <div class="list-item-z" v-if="item.album">
-                  <label class="zuozhe-box">期刊：</label>
-                  <div class="tap-top-span">
-                    <a href="javascript:0;" @click.stop="" v-html="item.album"></a>
-                  </div>
-                </div>
-                <div class="list-item-z" v-if="item.author_list">
-                  <label class="zuozhe-box" >作者：</label>
-
-                  <div class="tap-top-span">
-                    <!-- <a href="javascript:0;" v-for="(items,idx) in item.author_list" :key="idx" @click.stop="goToauthor(items,item.title)" v-html="items"></a> -->
-
-                    <span v-for="(items,idx) in item.author_list" :key="idx">
-                      <span v-if="item.author_org">
-                        <a href="javascript:0;" @click.stop="goToauthor(items,item.title)" v-html="items"></a>
-                      </span>
-                      <span class="zuozhe-span" v-else v-html="items"></span>
-                    </span>
-
-                  </div>
-                  
-                </div>
-                <div class="list-item-z" v-if="item.keyword_list">
-                  <label class="zuozhe-box">关键词：</label>
-                  <div class="tap-top-span">
-                    <a href="javascript:0;" v-for="(items,idx) in item.keyword_list" :key="idx" @click.stop="" v-html="items"></a>
-                  </div>
-                </div>
               </a>
+              <div class="list-item-z" v-if="item.album">
+                <label class="zuozhe-box">期刊：</label>
+                <div class="tap-top-span">
+                  <a href="javascript:0;" @click.stop="" v-html="item.album"></a>
+                </div>
+              </div>
+              <div class="list-item-z" v-if="item.author_list">
+                <label class="zuozhe-box" >作者：</label>
+
+                <div class="tap-top-span">
+                  <!-- <a href="javascript:0;" v-for="(items,idx) in item.author_list" :key="idx" @click.stop="goToauthor(items,item.title)" v-html="items"></a> -->
+
+                  <span v-for="(items,idx) in item.author_list" :key="idx">
+                    <span v-if="item.author_org">
+                      <a href="javascript:0;" @click.stop="goToauthor(items,item.title)" v-html="items"></a>
+                    </span>
+                    <span class="zuozhe-span" v-else v-html="items"></span>
+                  </span>
+
+                </div>
+                
+              </div>
+              <div class="list-item-z" v-if="item.keyword_list">
+                <label class="zuozhe-box">关键词：</label>
+                <div class="tap-top-span">
+                  <a href="javascript:0;" v-for="(items,idx) in item.keyword_list" :key="idx" @click.stop="" v-html="items"></a>
+                </div>
+              </div>
               <div class="item-btn-box">
                 <div class="asub-box">
                   <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection(index,item.is_collection,item.title,item.uniq_id,item.PMID)"><i :class="item.is_collection === 1 ?'el-icon-star-on':'el-icon-star-off'"></i>{{item.is_collection === 1 ? '取消收藏' :'收藏'}}</a>

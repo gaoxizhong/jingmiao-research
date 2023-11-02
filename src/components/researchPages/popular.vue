@@ -16,6 +16,7 @@
               <span>发表于: <span style="padding-left: 0.1rem;">{{item.year}}</span></span>
             </div>
             <div class="list-item-text" v-if="item.abstract">{{item.abstract}}</div>
+          </a>
             <div class="list-item-z" v-if="item.album">
               <label class="zuozhe-box">期刊：</label>
               <div class="tap-top-span">
@@ -44,7 +45,6 @@
                 <a href="javascript:0;" v-for="(items,idx) in item.keyword_list" :key="idx" @click.stop="">{{items}}</a>
               </div>
             </div>
-          </a>
           <div class="item-btn-box">
             <div class="asub-box">
               <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection(index,item.is_collection,item.title,item.uniq_id,item.PMID)"><i :class="item.is_collection === 1 ?'el-icon-star-on':'el-icon-star-off'"></i>{{item.is_collection === 1 ? '取消收藏' :'收藏'}}</a>

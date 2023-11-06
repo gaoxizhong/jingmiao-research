@@ -124,30 +124,31 @@
                     <span>发表于: <span style="padding-left: 0.1rem;">{{item.year}}</span></span>
                   </div>
                   <div class="list-item-text" v-if="item.abstract">{{item.abstract}}</div>
+
+                  <div class="list-item-z" v-if="item.album">
+                    <label class="zuozhe-box">期刊：</label>
+                    <div class="tap-top-span">
+                      <a href="javascript:0;" @click.stop="">{{item.album}}</a>
+                    </div>
+                  </div>
+                  <div class="list-item-z">
+                    <label class="zuozhe-box">作者：</label>
+                    <div class="tap-top-span">
+                      <!-- <a href="javascript:0;" v-for="(items,idx) in item.author_list" :key="idx" @click.stop="goToauthor(items,item.title)">{{items}}</a> -->
+
+                      <span v-for="(items,idx) in item.author_list" :key="idx">
+                        <!-- <span v-if="item.author_org && items.replace(/<[^>]+>/g,'').map()"> -->
+                        <!-- <span v-if=" item.author_org && item.author_org.length">
+                          <a href="javascript:0;" @click.stop="goToauthor(items,item.title)">{{ items }}</a>
+                        </span>
+                        <span class="zuozhe-span" v-else>{{items}}</span> -->
+                        <span class="zuozhe-span">{{items}}</span>
+                      </span>
+
+                    </div>
+                  </div>
                 </a>
 
-                <div class="list-item-z" v-if="item.album">
-                  <label class="zuozhe-box">期刊：</label>
-                  <div class="tap-top-span">
-                    <a href="javascript:0;" @click.stop="">{{item.album}}</a>
-                  </div>
-                </div>
-                <div class="list-item-z">
-                  <label class="zuozhe-box">作者：</label>
-                  <div class="tap-top-span">
-                    <!-- <a href="javascript:0;" v-for="(items,idx) in item.author_list" :key="idx" @click.stop="goToauthor(items,item.title)">{{items}}</a> -->
-
-                    <span v-for="(items,idx) in item.author_list" :key="idx">
-                      <!-- <span v-if="item.author_org && items.replace(/<[^>]+>/g,'').map()"> -->
-                        <!-- <span v-if="item.author_org.length && item.filter(ele => ele.author === items).length>0"> -->
-                        <span v-if=" item.author_org && item.author_org.length">
-                        <a href="javascript:0;" @click.stop="goToauthor(items,item.title)">{{ items }}</a>
-                      </span>
-                      <span class="zuozhe-span" v-else>{{items}}</span>
-                    </span>
-
-                  </div>
-                </div>
                 <div class="item-btn-box">
                   <div class="asub-box">
                     <!-- <a href="javascript:0;" target="_blank" class="asub-zaixian"  @click.stop="goTofullText()"><i :class="is_s?'el-icon-star-on':'el-icon-star-off'"></i>收藏</a> -->
@@ -461,12 +462,16 @@
         getdocRecommend(p).then(res => {
           if (res.data.code == 0) {
             let newData = that.docRecommendList.concat(res.data.data.data);
+            // newData.forEach( ele =>{
+            //   ele.author_list.forEach( ele_author =>{
+            //     console.log(ele.author_org.filter(e => e.author === ele_author).length > 0)
+            //   })
+            // })
             that.docRecommendList = newData;
             that.total_page = res.data.data.total_page;
           }
         })
         .catch(e => {
-          loading.close();
           console.log(e);
         });
       },

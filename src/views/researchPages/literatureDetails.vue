@@ -96,7 +96,7 @@
             </div>
             <div class="asub-box">
               <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection()"><i :class="infoDetail.is_collection === 1 ?'el-icon-star-on':'el-icon-star-off'"></i>{{infoDetail.is_collection === 1 ? '取消收藏' :'收藏'}}</a>
-              <a :href="infoDetail.pdf_url?infoDetail.pdf_url:'javascript:0;'" class="asub-zaixian" :target="infoDetail.pdf_url?'_blank':''" @click.stop="goToyuedu($event,infoDetail.pdf_url)" v-if="infoDetail.pdf_url"><i class="el-icon-reading"></i>在线阅读</a>
+              <!-- <a :href="infoDetail.pdf_url?infoDetail.pdf_url:'javascript:0;'" class="asub-zaixian" :target="infoDetail.pdf_url?'_blank':''" @click.stop="goToyuedu($event,infoDetail.pdf_url)" v-if="infoDetail.pdf_url"><i class="el-icon-reading"></i>在线阅读</a> -->
 
             </div>
           </div>
@@ -118,7 +118,7 @@
             <div class="list-itembox">
               <!-- ===  单条列表 开始 ===  -->
               <div class="list-item" v-for="(item,index) in docRecommendList" :key="index">
-                <a href="javascript:0;"   @click.stop="goToDetails(item.periodical_md5?item.periodical_md5:'',item.uniq_id?item.uniq_id:'',item.PMID?item.PMID:'')">
+                <a href="javascript:0;"   @click.stop="goToDetails(item.periodical_md5?item.periodical_md5:'',item.uniq_id?item.uniq_id:'')">
                   <div class="listitems-b">
                     <div class="list-item-title" :title="item.title">{{item.title}}</div>
                     <span>发表于: <span style="padding-left: 0.1rem;">{{item.year}}</span></span>
@@ -291,9 +291,8 @@
       this.viewWidth = getViewportSize.width;
       this.periodical_md5 = this.$route.query.periodical_md5;
       this.uniq_id = this.$route.query.uniq_id;
-      this.PMID = this.$route.query.PMID;
       // this.uid = window.localStorage.getItem('uid');
-      this.getDetail(this.periodical_md5,this.uniq_id,this.PMID);
+      this.getDetail(this.periodical_md5,this.uniq_id);
     },
     methods: {
       // 点击关键词
@@ -399,17 +398,14 @@
         }
       },
       // 获取详情
-      getDetail(i,u,pm) {
+      getDetail(i,u) {
         let that = this;
         let periodical_md5 = i;
         let uniq_id = u;
-        let PMID = pm;
-        
         let uid = that.uid;
         let pearms = {
           periodical_md5,
           uniq_id,
-          PMID,
           uid
         };
         const loading = this.$loading({
@@ -487,18 +483,16 @@
         }
       },
       // 点击列表
-      goToDetails(i,u,pm){
+      goToDetails(i,u){
         let that = this;
         let periodical_md5 = i;
         let uniq_id = u;
-        let PMID = pm;
         this.$emit('setsickNess','');
         this.$router.push({  //核心语句
           path:'/literatureDetails',   //跳转的路径
           query:{           //路由传参时push和query搭配使用 ，作用时传递参数
             periodical_md5,
             uniq_id,
-            PMID
           }
         })
       },

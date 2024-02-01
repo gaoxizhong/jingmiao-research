@@ -4,7 +4,7 @@
     <!-- 头部 开始  -->
     <el-header>
       <div class="l-content">
-        <!-- <img src="../../assets/image/researchPages/logo.png" alt=""  @click="clickLoge"/> -->
+        <img src="../../assets/image/logo.png" alt=""  @click="clickLoge"/>
       </div>
       <div class="headerTitle-box">
         <div class="headerTitle-home"  @click="clickLoge"><i class="el-icon-s-home"></i>首页</div>
@@ -211,7 +211,7 @@
     top: 0;
     left: 0;
     z-index: 999;
-    padding: 0 1.5rem 0 0 !important;
+    padding: 0 30px 0 20px !important;
     box-sizing: border-box;
 
   }
@@ -251,7 +251,7 @@
     padding: 1rem 16px 0 0;
   }
   .l-content{
-    width: 200px;
+    width: auto;
     height: 100%;
     display: flex;
     align-items: center;
@@ -259,7 +259,7 @@
   }
   .l-content>img{
     width: auto;
-    height: 2rem;
+    height: 40px;
     display: inline-block;
   }
 

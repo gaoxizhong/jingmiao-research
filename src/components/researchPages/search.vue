@@ -28,7 +28,7 @@
           <div class="list-itembox" ref="get">
             <!-- ===  单条列表 开始 ===  -->
             <div class="list-item" v-for="(item,index) in listData" :key="index">
-              <a href="javascript:0;" @click.stop="clickListItem(index,item.periodical_md5?item.periodical_md5:'',item.uniq_id?item.uniq_id:'',item.PMID?item.PMID:'' )">
+              <a href="javascript:0;" @click.stop="clickListItem( index,item.periodical_md5?item.periodical_md5:'',item.uniq_id?item.uniq_id:'' )">
                 <div class="listitems-b">
                   <div class="list-item-title" :title="item.title" v-html="item.title"></div>
                   <span>发表于: <span style="padding-left: 0.1rem;">{{item.year}}</span></span>
@@ -67,7 +67,7 @@
               </div>
               <div class="item-btn-box">
                 <div class="asub-box">
-                  <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection(index,item.is_collection,item.title,item.uniq_id,item.PMID)"><i :class="item.is_collection === 1 ?'el-icon-star-on':'el-icon-star-off'"></i>{{item.is_collection === 1 ? '取消收藏' :'收藏'}}</a>
+                  <a href="javascript:0;" class="asub-zaixian"  @click.stop="clickCollection(index,item.is_collection,item.title,item.uniq_id)"><i :class="item.is_collection === 1 ?'el-icon-star-on':'el-icon-star-off'"></i>{{item.is_collection === 1 ? '取消收藏' :'收藏'}}</a>
                   <a :href="item.periodical_url" target="_blank" class="asub-zaixian" v-if="item.periodical_url"><i class="el-icon-reading"></i>原文链接</a>
                 </div>
 
@@ -243,7 +243,7 @@
         this.shoow_status = !s;
       },
       //点击收藏
-      clickCollection(i,c,t,u,pm){
+      clickCollection(i,c,t,u){
         let that = this;
         let index = i;
         let uid = that.uid;
@@ -251,7 +251,6 @@
         let tag = '';
         let title = t;
         let uniq_id = u;
-        let PMID = pm;
         if(col == 1){
           // 1、已收藏  2、未收藏
           tag = 'cancelCollection';
@@ -267,8 +266,7 @@
         that.is_return = false;
         let p = {
           uid,
-          uniq_id,
-          PMID,
+          md5: uniq_id,
           tag,
           title
         }
@@ -372,7 +370,7 @@
 
 
       // 点击列表
-      clickListItem(i,p,u,pm){
+      clickListItem(i,p,u){
         let that = this;
         let index = i;
         let listData = that.listData;
@@ -380,7 +378,6 @@
         that.listData = listData;
         let periodical_md5 = p;
         let uniq_id = u;
-        let PMID = pm;
         that.$listeners.setsickNess('');  // 孙子组件向爷爷传递方法及数据
         // 新页面打开
         that.$router.push({  //核心语句
@@ -388,7 +385,6 @@
           query:{           //路由传参时push和query搭配使用 ，作用时传递参数
             periodical_md5,
             uniq_id,
-            PMID
           }
         })
       },

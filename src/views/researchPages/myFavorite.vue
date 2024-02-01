@@ -305,8 +305,7 @@
         })
         let pearms ={
           uid: that.uid,
-          uniq_id: sel_collection_info.uniq_id,
-          PMID: sel_collection_info.PMID,
+          md5: sel_collection_info.uniq_id,
           tags,
         }
         console.log(pearms)
@@ -341,7 +340,6 @@
         let that = this;
         let uid = that.uid;
         let uniq_id = that.infoDetail.uniq_id;
-        let PMID = that.infoDetail.PMID;
         let col = that.infoDetail.is_collection;
         let tag = '';
         let title = that.infoDetail.title;
@@ -355,8 +353,7 @@
         }
         let p = {
           uid,
-          uniq_id,
-          PMID,
+          md5: uniq_id,
           tag,
           title
         }

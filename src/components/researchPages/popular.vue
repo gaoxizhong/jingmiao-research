@@ -10,7 +10,7 @@
       <div class="list-itembox">
          <!-- ===  单条列表 开始 ===  -->
         <div class="list-item" v-for="(item,index) in listData" :key="index">
-          <a href="javascript:0;"  @click.stop="clickListItem(index,item.periodical_md5?item.periodical_md5:'',item.uniq_id?item.uniq_id:'',item.PMID?item.PMID:'')">
+          <a href="javascript:0;"  @click.stop="clickListItem(index,item.periodical_md5?item.periodical_md5:'',item.uniq_id?item.uniq_id:'')">
             <div class="listitems-b">
               <div class="list-item-title" :title="item.title">{{item.title}}</div>
               <span>发表于: <span style="padding-left: 0.1rem;">{{item.year}}</span></span>
@@ -219,8 +219,7 @@
         that.is_return = false;
         let p = {
           uid,
-          uniq_id,
-          PMID,
+          md5: uniq_id,
           tag,
           title
         }
@@ -320,7 +319,7 @@
        this.$emit('setsickNess', {advancedCondition,is_p:'2'});
       },
       // 点击文献列表
-      clickListItem(i,p,u,pm){
+      clickListItem(i,p,u){
         let that = this;
         let index = i;
         let listData = that.listData;
@@ -328,7 +327,6 @@
         that.listData = listData;
         let periodical_md5 = p;
         let uniq_id = u;
-        let PMID = pm;
         this.$listeners.setsickNess('');  // 孙子组件向爷爷传递方法及数据
         // 新页面打开
         this.$router.push({  //核心语句
@@ -336,16 +334,14 @@
           query:{           //路由传参时push和query搭配使用 ，作用时传递参数
             periodical_md5,
             uniq_id,
-            PMID
           }
         })
       },
       // 热门论文点击列表
-      goToDetails(p,u,pm){
+      goToDetails(p,u){
         let that = this;
         let periodical_md5 = p;
         let uniq_id = u;
-        let PMID = pm;
         this.$listeners.setsickNess('');  // 孙子组件向爷爷传递方法及数据
         // 新页面打开
         this.$router.push({  //核心语句
@@ -353,7 +349,6 @@
           query:{           //路由传参时push和query搭配使用 ，作用时传递参数
             periodical_md5,
             uniq_id,
-            PMID
           }
         })
       },

@@ -5,7 +5,7 @@ export default {
         //森亿 -- 环境
         dev: 'http://172.16.70.33/jmjk/',
         //主站 
-        pro: 'http://182.43.12.243:8981/jmjk/',
+        pro: 'http://106.225.184.197:8981/jmjk/',
         
     }
 }

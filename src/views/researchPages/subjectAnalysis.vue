@@ -56,7 +56,7 @@
         </div>
         <!-- 年份区间 开始 -->
         <div class="option-itemsbox option-itemsbox-4">
-          <yearPicker ref="statisticPicker" labelText="" setYear='setYear' :initYear="dateValue2"  @updateTimeRange="updateStatisticYear"/>
+          <yearPicker autocomplete="off" ref="statisticPicker" labelText="" setYear='setYear' :initYear="dateValue2"  @updateTimeRange="updateStatisticYear"/>
         </div>
         <!-- 年份区间 结束 -->
 

@@ -189,7 +189,17 @@ const routes = [
 
     ]
   },
-
+  {
+    path: '/CDSS',
+    name: 'WesternMedicineCDSS',
+    component: () => import('@/views/WesternMedicineCdss'),
+    meta: {
+      title: 'CDSS',
+      keepAlive: true,
+      scollTopPosition: 0,
+      requireAuth:true,
+    }
+  },
 ]
 
 // 页面刷新时，重新赋值token

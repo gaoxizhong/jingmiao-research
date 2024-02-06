@@ -4,7 +4,7 @@
       <!-- 搜索框模块开始 -->
       <div class="classinput-box">
         <div class="header-input-box">
-        <el-input :placeholder="tag_pages == 'xyzsk'?'搜索疾病、药品、检查、临床路径等':'搜索证型、方剂、中药、体质等' " v-model="input_name" class="input-with-select" @keydown.enter.native="searchEnterFun($event)">
+        <el-input :placeholder="tag_pages == 'xyzsk'?'搜索疾病、药品、检查、临床路径等':'搜索疾病、方剂、中药等' " v-model="input_name" class="input-with-select" @keydown.enter.native="searchEnterFun($event)">
           <el-button slot="append" @click="getExistLabels">搜索</el-button>
         </el-input>
         </div>
@@ -269,6 +269,7 @@ export default {
           });
           that.options = tagList;  // 所有分类项
           that.tag = that.options[0].key;
+          that.cur_tab = 0;
           that.departmentList = that.options[0].department;
           that.inputClick();
         }

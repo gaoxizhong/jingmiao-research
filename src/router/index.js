@@ -102,6 +102,49 @@ const routes = [
           requireAuth:true,
         }
       },
+      {
+        path: '/xyzskPages',
+        name: 'xyzskPages',
+        component: () => import('@/views/xyzskPages'),
+        meta: {
+          title: '西医知识库',
+          keepAlive: true,
+          scollTopPosition: 0,
+          requireAuth:true,
+        }
+      },
+      {
+        path: '/zyzskPages',
+        name: 'zyzskPages',
+        component: () => import('@/views/zyzskPages'),
+        meta: {
+          title: '中医知识库',
+          keepAlive: true,
+          scollTopPosition: 0,
+          requireAuth:true,
+        }
+      },
+      {
+        path: '/WesternMedicineCdss',
+        name: 'WesternMedicineCdss',
+        component: () => import('@/views/WesternMedicineCdss'),
+        meta: {
+          title: '西医CDSS',
+          keepAlive: true,
+          scollTopPosition: 0,
+          requireAuth:true,
+        }
+      },
+      {
+        path: '/NewDetails',
+        name : 'NewDetails',
+        component: () => import('@/views/NewDetails'),
+        meta: {
+          title: '详情',
+          scollTopPosition: 0,
+          requireAuth:true,
+        }
+      },
       { 
         path: '/journalDetails', //  --- 期刊分析详情页
         name: 'journalDetails',
@@ -143,6 +186,7 @@ const routes = [
           requireAuth:true,
         }
       },
+
     ]
   },
 

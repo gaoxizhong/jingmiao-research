@@ -52,6 +52,12 @@
               <el-menu-item index="/scholarAnalysis">学者分析</el-menu-item>
               <el-menu-item index="/journalAnalysis">期刊分析</el-menu-item>
             </el-submenu>
+            <el-submenu index="4">
+              <span slot="title">知识库</span>
+              <el-menu-item index="/xyzskPages">西医知识库</el-menu-item>
+              <el-menu-item index="/zyzskPages">中医知识库</el-menu-item>
+              <el-menu-item index="/WesternMedicineCdss">西医CDSS</el-menu-item>
+            </el-submenu>
           </el-submenu>
         </el-menu>
       </el-aside>

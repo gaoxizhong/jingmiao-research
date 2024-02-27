@@ -382,7 +382,8 @@
       that.getliteratureHistory();
       let is_p = that.$route.query.is_p;
       let author = that.$route.query.author;
-      let keyword = that.$route.query.keyword;
+      let keyword = that.$route.query.keyword || that.$route.query.search;
+      console.log(keyword)
       if(that.$route.query.userHistory){
         let userHistory =  JSON.parse(that.$route.query.userHistory);
         console.log(userHistory)

@@ -186,7 +186,17 @@ const routes = [
           requireAuth:true,
         }
       },
-
+      { 
+        path: '/scientificResearch', //  --- 科研大数据
+        name: 'scientificResearch',
+        component: () => import('@/views/researchPages/scientificResearch'),
+        meta: {
+          title: '科研大数据',
+          keepAlive: false,
+          scollTopPosition: 0,
+          requireAuth:true,
+        }
+      },
     ]
   },
   {

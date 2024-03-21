@@ -30,35 +30,42 @@
         >
           <a href="javascript:0;" class="isCollapse-box" @click="menu_btn">
             <img src="../../assets/image/researchPages/isCollapse.png" class="isCollapse-i" />
-            <span class="isCollapse-s" v-if="isColl">折叠面板</span>
+            <span class="isCollapse-s" v-if="isColl">科研灵感探索</span>
           </a>
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span slot="title">科研灵感探索</span>
-            </template>
-            <el-submenu index="3">
               <span slot="title">文献库</span>
-              <el-menu-item index="/popularLiterature">
-                <span>文献库</span>
-              </el-menu-item>
-              <el-menu-item index="/myFavorite">
-                <span>我收藏的</span>
-              </el-menu-item>
-            </el-submenu>
-            <el-submenu index="2">
-              <span slot="title">灵感发现</span>
-              <el-menu-item index="/subjectAnalysis">学科分析</el-menu-item>
-              <el-menu-item index="/scholarAnalysis">学者分析</el-menu-item>
-              <el-menu-item index="/journalAnalysis">期刊分析</el-menu-item>
-            </el-submenu>
-            <el-submenu index="4">
-              <span slot="title">知识库</span>
-              <el-menu-item index="/xyzskPages">西医知识库</el-menu-item>
-              <el-menu-item index="/zyzskPages">中医知识库</el-menu-item>
-              <el-menu-item index="/WesternMedicineCdss">西医CDSS</el-menu-item>
-            </el-submenu>
+            </template>
+            <el-menu-item index="/popularLiterature">
+              <span>文献库</span>
+            </el-menu-item>
+            <el-menu-item index="/myFavorite">
+              <span>我收藏的</span>
+            </el-menu-item>
           </el-submenu>
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">灵感发现</span>
+            </template>
+            <el-menu-item index="/subjectAnalysis">学科分析</el-menu-item>
+            <el-menu-item index="/scholarAnalysis">学者分析</el-menu-item>
+            <el-menu-item index="/journalAnalysis">期刊分析</el-menu-item>
+          </el-submenu>
+          <el-submenu index="3">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">知识库</span>
+            </template>
+            <el-menu-item index="/xyzskPages">西医知识库</el-menu-item>
+            <el-menu-item index="/zyzskPages">中医知识库</el-menu-item>
+            <el-menu-item index="/WesternMedicineCdss">西医CDSS</el-menu-item>
+          </el-submenu>
+          <el-menu-item index="/scientificResearch">
+            <i class="el-icon-location"></i>
+            <span slot="title">科研大数据</span>
+          </el-menu-item>
         </el-menu>
       </el-aside>
       <!-- 左侧导航 结束 -->
@@ -374,5 +381,13 @@
   }
   .el-aside >>> .el-submenu__icon-arrow{
     right: 4px;
+  }
+ 
+  .el-aside >>> .el-submenu ul{
+    background: #fafbff;
+  }
+  .el-aside >>> .el-menu-item{
+    height: 40px;
+    line-height: 40px;
   }
 </style>

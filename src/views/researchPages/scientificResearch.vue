@@ -1,6 +1,6 @@
 <template>
   <div class="pages-b">
-    <iframe src="" frameborder="0" class="iframe-box"></iframe>
+    <iframe src="http://10.10.11.65:8081/#/login?preUrl=whitelist-search-specialty" frameborder="0" class="iframe-box"></iframe>
   </div>
 
 </template>

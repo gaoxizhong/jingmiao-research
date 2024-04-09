@@ -84,40 +84,6 @@
 
     <!-- 右侧 开始-->
     <div class="listbox-right">
-      <!-- 快速入口 开始 -->
-      <div class="fastEntry-box">
-
-        <div class="fastEntry-l-titlebox">
-          <div class="l-titlebox-1">
-            <span>快速入口</span>
-          </div>
-        </div>
-
-        <div class="fastEntry-listbox">
-          <a href="javascript:0;" @click="goToMyFavorite('/useTutorial')">
-            <img src="../../assets/image/researchPages/icon-syjc.png" alt="" />
-            <span>使用教程</span>
-          </a>
-          <a href="javascript:0;" @click="goToMyFavorite('/myFavorite')">
-            <img src="../../assets/image/researchPages/icon-wdsc.png" alt="" />
-            <span>我收藏的</span>
-          </a>
-          <a href="javascript:0;" @click="goToMyFavorite('/scholarAnalysis')">
-            <img src="../../assets/image/researchPages/icon-xzfx.png" alt="" />
-            <span>学者分析</span>
-          </a>
-          <a href="javascript:0;" @click="goToMyFavorite('/subjectAnalysis')">
-            <img src="../../assets/image/researchPages/icon-xkfx.png" alt="" />
-            <span>学科分析</span>
-          </a>
-          <a href="javascript:0;" @click="goToMyFavorite('/journalAnalysis')">
-            <img src="../../assets/image/researchPages/icon-qkfx.png" alt="" />
-            <span>期刊分析</span>
-          </a>
-        </div>
-
-      </div>
-      <!-- 快速入口 结束 -->
 
       <div class="popularList-box">
         <div class="fastEntry-l-titlebox">
@@ -714,9 +680,9 @@
   }
 
 
-  .listbox-right>div.popularList-box{
+  /* .listbox-right>div.popularList-box{
     margin-top: 0.9rem;
-  }
+  } */
   .popular-listbox{
     width: 100%;
     padding: 0.45rem 1rem;

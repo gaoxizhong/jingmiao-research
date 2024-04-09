@@ -44,7 +44,7 @@
               <span>我收藏的</span>
             </el-menu-item>
           </el-submenu>
-          <el-submenu index="2">
+          <!-- <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span slot="title">灵感发现</span>
@@ -52,7 +52,7 @@
             <el-menu-item index="/subjectAnalysis">学科分析</el-menu-item>
             <el-menu-item index="/scholarAnalysis">学者分析</el-menu-item>
             <el-menu-item index="/journalAnalysis">期刊分析</el-menu-item>
-          </el-submenu>
+          </el-submenu> -->
           <el-submenu index="3">
             <template slot="title">
               <i class="el-icon-location"></i>
@@ -62,12 +62,12 @@
             <el-menu-item index="/zyzskPages">中医知识库</el-menu-item>
             <el-menu-item index="/WesternMedicineCdss">西医CDSS</el-menu-item>
           </el-submenu>
-          <el-menu-item>
+          <!-- <el-menu-item>
             <a href="http://10.10.11.65:8081/#/login?preUrl=whitelist-search-specialty" target="_blank" style="display: inline-block;width: 100%;height: 100%;">
               <i class="el-icon-location"></i>
              <span slot="title">科研大数据</span>
             </a>
-          </el-menu-item>
+          </el-menu-item> -->
         </el-menu>
       </el-aside>
       <!-- 左侧导航 结束 -->

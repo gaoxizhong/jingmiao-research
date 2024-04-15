@@ -4,7 +4,7 @@
     <!-- 头部 开始  -->
     <el-header>
       <div class="l-content">
-        <img src="../../assets/image/logo.png" alt=""  @click="clickLoge"/>
+        <img src="../../assets/image/gggaa.png" alt=""  @click="clickLoge"/>
       </div>
       <div class="headerTitle-box">
         <div class="headerTitle-home"  @click="clickLoge"><i class="el-icon-s-home"></i>首页</div>
@@ -198,7 +198,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 1rem;
+  padding-left: 60px;
 }
 .headerTitle-home{
   display: flex;
@@ -218,7 +218,7 @@
   }
   .el-header{
     width: 100%;
-    height: 3.6rem !important;
+    height: 60px !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -234,7 +234,7 @@
     height: 100%;
     overflow-X: hidden;
     position: fixed;
-    top: 3.65rem;
+    top: 60px;
     left: 0;
     z-index: 1999;
   }
@@ -255,7 +255,7 @@
   }
   .el-main{
     background: #FAFBFF;
-    padding: 3.6rem 0px 16px 216px;
+    padding: 60px 0px 16px 216px;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -263,18 +263,18 @@
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    padding: 1rem 16px 0 0;
+    padding: 20px 16px 0 0;
   }
   .l-content{
     width: auto;
-    height: 100%;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .l-content>img{
     width: auto;
-    height: 40px;
+    height: 100%;
     display: inline-block;
   }
 

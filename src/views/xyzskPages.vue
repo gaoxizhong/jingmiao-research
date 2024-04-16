@@ -91,7 +91,7 @@ export default {
       MedicineIfoList:[], // 搜索结果列表
       page: 1,
       getListInfo:[], // 临床试验列表
-      pageSize: 10,
+      pageSize: 20,
       count:0,
       activeIndex:''
     }
@@ -160,6 +160,7 @@ export default {
       let keyword = that.input_name;
       let pearms = {
         page: that.page,
+        pagesize: that.pageSize,
         keyword,
       };
       const loading = that.$loading({
@@ -191,6 +192,7 @@ export default {
         tag,
         keyword: that.input_name,
         page: that.page,
+        pagesize: that.pageSize,
         type:''
       };
       const loading = that.$loading({
@@ -264,7 +266,7 @@ export default {
           let options_1 = res.data.data;
           let tagList = [];
           options_1.forEach(ele => {
-            if( ele.key == "Disease" || ele.key == "SickNess" || ele.key == "MedicineProduction" || ele.key == "Inspection" || ele.key == "Operation"){
+            if( ele.key == "Disease" || ele.key == "SickNess" || ele.key == "MedicineProduction" || ele.key == "Inspection" || ele.key == "Operation"|| ele.key == "Mission" ){
               tagList.push(ele)
             }
           });

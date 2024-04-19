@@ -50,7 +50,34 @@
           </el-table>
         </div>
       </template>
-
+      <!-- 药物相互作用 -->
+      <template v-if="tag == 'Interact'">
+        <div class="paddingSide15">
+          <el-table :data="getListInfo" border stripe style="width: 100%;" >
+            <el-table-column type="index" :index="indexMethod" label="序号" align="center" width="60"></el-table-column>
+            <el-table-column prop="trystate" align="center" label="A药">
+              <template slot-scope="scope">
+                <a :href="scope.row.file" target="_blank" >{{scope.row.A_medicine}}</a>
+              </template>
+            </el-table-column>
+            <el-table-column prop="drug_name" align="center" label="B药">
+              <template slot-scope="scope">
+                <a :href="scope.row.file" target="_blank" >{{scope.row.B_medicine}}</a>
+              </template>
+            </el-table-column>
+            <el-table-column prop="adaptation_disease" align="center" label="相互作用">
+              <template slot-scope="scope">
+                <a :href="scope.row.file" target="_blank" >{{scope.row.interact}}</a>
+              </template>
+            </el-table-column>
+            <el-table-column prop="experimental_popular_topic" align="center" label="机制">
+              <template slot-scope="scope">
+                <a :href="scope.row.file" target="_blank" >{{scope.row.mechanism}}</a>
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
+      </template>
       <div class="MedicineTagList-infodiv" v-else>
         <a v-for="(item, index) in MedicineIfoList" :key="index" :href="(item.tag == 'ClinicalPathway')?item.file:'javascript:0;'" :target="(item.tag == 'ClinicalPathway')?'_blank':''" @click="(item.tag == 'ClinicalPathway')?click_file(item.file):click_gotoxq( item )">
           <span>{{ item.name }}</span>
@@ -72,7 +99,7 @@
 </template>
 
 <script>
-import { getMedicineList,getExistLabels,getNewClinicalTrial } from "@/api/data"
+import { getMedicineList,getExistLabels,getNewClinicalTrial,getNewInteract } from "@/api/data"
 export default {
   name: 'SearchPages',
   components: {
@@ -91,7 +118,7 @@ export default {
       MedicineIfoList:[], // 搜索结果列表
       page: 1,
       getListInfo:[], // 临床试验列表
-      pageSize: 20,
+      pageSize: 10,
       count:0,
       activeIndex:''
     }
@@ -135,7 +162,7 @@ export default {
       that.count = 0;
       that.getListInfo = [];
       let tag = that.tag;
-      if(tag == 'ClinicalTrial'){
+      if(tag == 'ClinicalTrial' || tag == 'Interact'){
         that.getNewClinicalTrial();
       }else{
         that.getMedicineInputBtn();
@@ -146,7 +173,7 @@ export default {
       let that = this;
       that.page = val;
       let tag = that.tag;
-      if(tag == 'ClinicalTrial'){
+      if(tag == 'ClinicalTrial' || tag == 'Interact'){
         that.getNewClinicalTrial();
       }else{
         that.getMedicineInputBtn();
@@ -157,10 +184,10 @@ export default {
     // 获取临床试验数据
     getNewClinicalTrial(){
       let that = this;
+      let tag = that.tag;
       let keyword = that.input_name;
       let pearms = {
         page: that.page,
-        pagesize: that.pageSize,
         keyword,
       };
       const loading = that.$loading({
@@ -170,18 +197,34 @@ export default {
         background: 'rgba(0, 0, 0, 0.1)',
         target:document.querySelector('.el-main'),
       });
-      getNewClinicalTrial(pearms).then((res) => {
-        loading.close();
-        if (res.data.code == 0) {
-          let getListInfo = res.data.data.list;
-          that.count = res.data.data.total;
-          that.getListInfo= getListInfo;
-        }
-      })
-      .catch((e) => {
-        loading.close();
-        console.log(e);
-      });
+      if(tag == 'ClinicalTrial'){
+        getNewClinicalTrial(pearms).then((res) => {
+          loading.close();
+          if (res.data.code == 0) {
+            let getListInfo = res.data.data.list;
+            that.count = res.data.data.total;
+            that.getListInfo= getListInfo;
+          }
+        })
+        .catch((e) => {
+          loading.close();
+          console.log(e);
+        });
+      }
+      if( tag == 'Interact'){
+        getNewInteract(pearms).then((res) => {
+          loading.close();
+          if (res.data.code == 0) {
+            let getListInfo = res.data.data.list;
+            that.count = res.data.data.total;
+            that.getListInfo= getListInfo;
+          }
+        })
+        .catch((e) => {
+          loading.close();
+          console.log(e);
+        });
+      }
     },
     // 知识搜索事件
     getMedicineInputBtn() {
@@ -266,7 +309,16 @@ export default {
           let options_1 = res.data.data;
           let tagList = [];
           options_1.forEach(ele => {
-            if( ele.key == "Disease" || ele.key == "SickNess" || ele.key == "MedicineProduction" || ele.key == "Inspection" || ele.key == "Operation"|| ele.key == "Mission" ){
+            if( 
+              ele.key == "Disease" || ele.key == "SickNess" 
+              || ele.key == "MedicineProduction" || ele.key == "Inspection" 
+              || ele.key == "Operation"|| ele.key == "Mission" 
+              || ele.key == "essentialDrugs" || ele.key == "MedicalInsuranceDrugEn"
+              || ele.key == "DrugOverdose" || ele.key == "Interact"
+              || ele.key == "XyPrescription" || ele.key == "DrugAnswers"
+              || ele.key == "Antidiastole" || ele.key == "DrugTarget"
+              || ele.key == "ClinicalPathway"
+            ){
               tagList.push(ele)
             }
           });

@@ -60,7 +60,7 @@
             </template>
             <el-menu-item index="/xyzskPages">西医知识库</el-menu-item>
             <el-menu-item index="/zyzskPages">中医知识库</el-menu-item>
-            <el-menu-item index="/WesternMedicineCdss">西医CDSS</el-menu-item>
+            <!-- <el-menu-item index="/WesternMedicineCdss">西医CDSS</el-menu-item> -->
           </el-submenu>
           <!-- <el-menu-item>
             <a href="http://10.10.11.65:8081/#/login?preUrl=whitelist-search-specialty" target="_blank" style="display: inline-block;width: 100%;height: 100%;">

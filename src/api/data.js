@@ -8,7 +8,7 @@ export const getClassBrowseList = (params) =>{
     data: params
   })
 }
-// =================  科研探索api  ↓ ==================
+// =================  知识库平台api  ↓ ==================
 
 // 文献默认首页
 export const getEsIndex = (params) =>{
@@ -237,7 +237,7 @@ export const collectionAddTags = (params) =>{
     data: params
   })
 }
-// =================  科研探索api  ↑ ==================
+// =================  知识库平台api  ↑ ==================
 
 //cdss 获取西医问诊列表
 export const getWesternSymptomList = (params) =>{
@@ -339,6 +339,13 @@ export const getNewBaseDetail = (params) =>{
 export const getNewClinicalTrial = (params) =>{  
   return axios.request({
     url:'/new/get-clinical-trial',
+    method: 'post',
+    data: params
+  })
+}
+export const getNewInteract = (params) =>{  
+  return axios.request({
+    url:'/new/get-interact',
     method: 'post',
     data: params
   })

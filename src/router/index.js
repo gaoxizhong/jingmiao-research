@@ -228,7 +228,7 @@ router.afterEach((to) => {
   if(to.meta.title){
     document.title = to.meta.title
   }else{
-    document.title = '科研探索'
+    document.title = '知识库平台'
   }
   window.scrollTo(0,0);
 

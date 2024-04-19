@@ -5,9 +5,13 @@
     <el-header>
       <div class="l-content">
         <img src="../../assets/image/gggaa.png" alt=""  @click="clickLoge"/>
+        <div style="color: #fff;text-align:left;padding-left:10px;">
+          <div style="font-size: 14px;">哈尔滨医科大学附属第一医院 </div>
+          <!-- <div style="font-size: 10px;">THE FIRST AFFILIATED HOSPITAL OF HARBIN MEDICAL UNIVERSITY</div> -->
+        </div>
       </div>
       <div class="headerTitle-box">
-        <div class="headerTitle-home"  @click="clickLoge"><i class="el-icon-s-home"></i>首页</div>
+        <div class="headerTitle-home"></div>
         <div class="r-content" v-if="phone">
           <img src="../../assets/image/researchPages/img-user.png" title="个人中心" class="user-img" @click="goToUserCenter"/>
           <!-- <a href="javascript:0;" class="r-toLogin" @click="toLogin">退出</a> -->
@@ -28,9 +32,12 @@
           router 
           unique-opened
         >
-          <a href="javascript:0;" class="isCollapse-box" @click="menu_btn">
-            <img src="../../assets/image/researchPages/isCollapse.png" class="isCollapse-i" />
-            <span class="isCollapse-s" v-if="isColl">科研灵感探索</span>
+          <a href="javascript:0;" class="isCollapse-box" @click="menu_btn" v-if="isColl">
+            <img src="../../assets/image/icon-s-l.png" class="isCollapse-i" />
+            <span class="isCollapse-s">科研灵感探索</span>
+          </a>
+          <a href="javascript:0;" class="isCollapse-box" @click="menu_btn" v-else>
+            <img src="../../assets/image/icon-s-r.png" class="isCollapse-i" />
           </a>
           <el-submenu index="1">
             <template slot="title">
@@ -204,7 +211,7 @@
   display: flex;
   align-items: center;
   font-size: 15px;
-  color: #999;
+  color: #fff;
   cursor: pointer;
 }
 /* ==============  滚动条样式   ==================== */
@@ -218,7 +225,7 @@
   }
   .el-header{
     width: 100%;
-    height: 60px !important;
+    height: 50px !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -228,13 +235,13 @@
     z-index: 999;
     padding: 0 30px 0 20px !important;
     box-sizing: border-box;
-
+    background: #262f34;
   }
   .el-aside{
     height: 100%;
     overflow-X: hidden;
     position: fixed;
-    top: 60px;
+    top: 50px;
     left: 0;
     z-index: 1999;
   }
@@ -242,13 +249,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height:40px;
-    line-height:40px;
+    height:50px;
+    line-height:50px;
     font-size: 14px !important;
-    border-bottom: 1px solid #e9e9e94f;
+    color: rgb(191, 203, 217);
   }
   .el-aside >>> .el-submenu .el-submenu__title:hover{
-    background: #DBEAFF;
+    background-color: #263445 !important;
   }
   .el-aside >>> .el-submenu .el-submenu__title span{
     padding-left: 0.5rem;
@@ -267,7 +274,7 @@
   }
   .l-content{
     width: auto;
-    height: 50px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -279,7 +286,7 @@
   }
 
   .l-content>.l-content-title{
-    font-size:1.7rem;
+    font-size:14px;
     padding-left:10px;
     color:#3664D9;
     font-weight:600;
@@ -298,8 +305,8 @@
     align-items: center;
   }
   .r-content>img.user-img{
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
   }
   .r-toLogin{
@@ -315,10 +322,12 @@
   .el-menu{
     text-align: left;
     height: 100%;
-    padding: 0 0.5rem;
+    background: #304156;
+
   }
   .el-menu-vertical-demo:not(.el-menu--collapse){
     width: 200px;
+    background: #304156;
   }
 
   
@@ -336,21 +345,19 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     /* background: rgba(49, 130, 211, 0.048); */
-    color: #666;
     
   }
   .el-submenu .el-menu-item:hover {
-    background-color: #DBEAFF;
-    color: #3664D9 !important;
+    color: rgb(64, 158, 255)!important;
 }
   .el-submenu .el-menu-item{
-    width: 100%
+    color: rgb(191, 203, 217);
+    width: 100%;
+    background-color: #1f2d3d !important;
   }
   .el-menu-item.is-active{
     opacity: 1;
-    color: #3664D9 !important;
-    background: #DBEAFF;
-   
+    color: rgb(64, 158, 255)!important;
   }
   .el-icon-arrow-down:before{
     color: #000;
@@ -361,9 +368,13 @@
     align-items: center;
     height: 40px;
     font-size: 14px;
-    padding: 0 1.5rem;
+    padding: 0 20px;
     box-sizing: border-box;
-    border-bottom: 1px solid #E1E1E1;
+    border-bottom: 1px solid #cacaca;
+    color: #fff;
+  }
+  .isCollapse-box:hover{
+    color: #fff;
   }
   .isCollapse-box .isCollapse-i{
     width: 1rem;

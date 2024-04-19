@@ -62,46 +62,6 @@ const routes = [
           requireAuth:true,
         }
       },
-      { 
-        path: '/scholarAnalysis', //  --- 学者分析首页
-        name: 'scholarAnalysis',
-        component: () => import('@/views/researchPages/scholarAnalysis'),
-        meta: {
-          keepAlive: true,
-          scollTopPosition: 0,
-          requireAuth:true,
-        }
-      },
-      { 
-        path: '/scholarAnalysisDetails', //  --- 学者分析详情页
-        name: 'scholarAnalysisDetails',
-        component: () => import('@/views/researchPages/scholarAnalysisDetails'),
-        meta: {
-          keepAlive: false,
-          scollTopPosition: 0,
-          requireAuth:true,
-        }
-      },
-      { 
-        path: '/subjectAnalysis', //  --- 学科分析首页
-        name: 'subjectAnalysis',
-        component: () => import('@/views/researchPages/subjectAnalysis'),
-        meta: {
-          keepAlive: true,
-          scollTopPosition: 0,
-          requireAuth:true,
-        }
-      },
-      { 
-        path: '/journalAnalysis', //  --- 期刊分析首页
-        name: 'journalAnalysis',
-        component: () => import('@/views/researchPages/journalAnalysis'),
-        meta: {
-          keepAlive: true,
-          scollTopPosition: 0,
-          requireAuth:true,
-        }
-      },
       {
         path: '/xyzskPages',
         name: 'xyzskPages',
@@ -125,52 +85,11 @@ const routes = [
         }
       },
       {
-        path: '/WesternMedicineCdss',
-        name: 'WesternMedicineCdss',
-        component: () => import('@/views/WesternMedicineCdss'),
-        meta: {
-          title: '西医CDSS',
-          keepAlive: true,
-          scollTopPosition: 0,
-          requireAuth:true,
-        }
-      },
-      {
         path: '/NewDetails',
         name : 'NewDetails',
         component: () => import('@/views/NewDetails'),
         meta: {
           title: '详情',
-          scollTopPosition: 0,
-          requireAuth:true,
-        }
-      },
-      { 
-        path: '/journalDetails', //  --- 期刊分析详情页
-        name: 'journalDetails',
-        component: () => import('@/views/researchPages/journalDetails'),
-        meta: {
-          keepAlive: false,
-          scollTopPosition: 0,
-          requireAuth:true,
-        }
-      },
-      { 
-        path: '/useTutorial', //  --- 使用教程
-        name: 'useTutorial',
-        component: () => import('@/views/researchPages/useTutorial'),
-        meta: {
-          keepAlive: true,
-          scollTopPosition: 0,
-          requireAuth:true,
-        }
-      },
-      { 
-        path: '/institutionalAnalysis', //  --- 机构分析首页
-        name: 'institutionalAnalysis',
-        component: () => import('@/views/researchPages/institutionalAnalysis'),
-        meta: {
-          keepAlive: false,
           scollTopPosition: 0,
           requireAuth:true,
         }
@@ -198,17 +117,6 @@ const routes = [
         }
       },
     ]
-  },
-  {
-    path: '/CDSS',
-    name: 'WesternMedicineCDSS',
-    component: () => import('@/views/WesternMedicineCdss'),
-    meta: {
-      title: 'CDSS',
-      keepAlive: true,
-      scollTopPosition: 0,
-      requireAuth:true,
-    }
   },
 ]
 

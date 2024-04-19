@@ -85,7 +85,6 @@ button{
   width: 100%;
   height: auto !important;
   background: #fff;
-  border-bottom: 1px solid #ececec;
   // box-shadow: 0px 2px 6px 0px rgba(197, 197, 197, 0.5);
 }
 .el-container{

@@ -1,2 +1,2 @@
 # jingmiao-research
-森亿--科研探索项目
+知识库平台项目

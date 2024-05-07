@@ -268,9 +268,11 @@ export default {
             }
           });
           that.options = tagList;  // 所有分类项
-          that.tag = that.options[0].key;
-          that.cur_tab = 0;
-          that.departmentList = that.options[0].department;
+          let cur_tab = that.cur_tab;
+          that.tag = that.options[cur_tab].key;
+          // that.tag = that.options[0].key;
+          // that.cur_tab = 0;
+          // that.departmentList = that.options[0].department;
           that.inputClick();
         }
       })

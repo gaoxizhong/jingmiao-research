@@ -63,7 +63,7 @@
             <el-menu-item index="/WesternMedicineCdss">西医CDSS</el-menu-item>
           </el-submenu>
           <el-menu-item>
-            <a href="http://10.10.11.65:8081/#/login?preUrl=whitelist-search-specialty" target="_blank" style="display: inline-block;width: 100%;height: 100%;">
+            <a href="http://192.168.51.2:18081/#/login?preUrl=whitelist-search-specialty" target="_blank" style="display: inline-block;width: 100%;height: 100%;">
               <i class="el-icon-location"></i>
              <span slot="title">科研大数据</span>
             </a>

@@ -4,20 +4,19 @@
     <!-- 头部 开始  -->
     <el-header>
       <div class="l-content">
-        <img src="../../assets/image/gggaa.png" alt=""  @click="clickLoge"/>
+        <img src="../../assets/image/logo-1.png" alt=""  @click="clickLoge"/>
         <div style="color: #fff;text-align:left;padding-left:10px;">
-          <div style="font-size: 14px;">哈尔滨医科大学附属第一医院 </div>
+          <div style="font-size: 16px;">茌平县中医院 </div>
           <!-- <div style="font-size: 10px;">THE FIRST AFFILIATED HOSPITAL OF HARBIN MEDICAL UNIVERSITY</div> -->
         </div>
       </div>
-      <div class="headerTitle-box">
+      <!-- <div class="headerTitle-box">
         <div class="headerTitle-home"></div>
         <div class="r-content" v-if="phone">
           <img src="../../assets/image/researchPages/img-user.png" title="个人中心" class="user-img" @click="goToUserCenter"/>
-          <!-- <a href="javascript:0;" class="r-toLogin" @click="toLogin">退出</a> -->
+          <a href="javascript:0;" class="r-toLogin" @click="toLogin">退出</a>
         </div>
-
-      </div>
+      </div> -->
     </el-header>
     <!-- 头部 结束  -->
     <el-container>
@@ -34,32 +33,12 @@
         >
           <a href="javascript:0;" class="isCollapse-box" @click="menu_btn" v-if="isColl">
             <img src="../../assets/image/icon-s-l.png" class="isCollapse-i" />
-            <span class="isCollapse-s">科研灵感探索</span>
+            <span class="isCollapse-s">茌平县中医院</span>
           </a>
           <a href="javascript:0;" class="isCollapse-box" @click="menu_btn" v-else>
             <img src="../../assets/image/icon-s-r.png" class="isCollapse-i" />
           </a>
-          <el-submenu index="1">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span slot="title">文献库</span>
-            </template>
-            <el-menu-item index="/popularLiterature">
-              <span>文献库</span>
-            </el-menu-item>
-            <el-menu-item index="/myFavorite">
-              <span>我收藏的</span>
-            </el-menu-item>
-          </el-submenu>
-          <!-- <el-submenu index="2">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span slot="title">灵感发现</span>
-            </template>
-            <el-menu-item index="/subjectAnalysis">学科分析</el-menu-item>
-            <el-menu-item index="/scholarAnalysis">学者分析</el-menu-item>
-            <el-menu-item index="/journalAnalysis">期刊分析</el-menu-item>
-          </el-submenu> -->
+         
           <el-submenu index="3">
             <template slot="title">
               <i class="el-icon-location"></i>
@@ -113,7 +92,7 @@
         is_view: true,
         menuBackgroundColor:'#fff',
         menuTextColor:'#000',
-        activeIndex:'/popularLiterature'
+        activeIndex:'/xyzskPages'
       }
     },
     mounted(){
@@ -157,7 +136,7 @@
         this.$emit('setsickNess', '');
         window.localStorage.setItem("retrievalArr", '');
         this.$router.push({
-          path:'/popularLiterature',
+          path:'/xyzskPages',
           query:{},
         })
       },
@@ -283,6 +262,7 @@
     width: auto;
     height: 100%;
     display: inline-block;
+    border-radius: 50%;
   }
 
   .l-content>.l-content-title{

@@ -1,2 +1,2 @@
 # jingmiao-research
-知识库平台项目
+茌平县中医院知识库平台项目

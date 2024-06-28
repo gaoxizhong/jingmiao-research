@@ -6,7 +6,7 @@
       <div class="l-content">
         <img src="../../assets/image/logo-1.png" alt=""  @click="clickLoge"/>
         <div style="color: #fff;text-align:left;padding-left:10px;">
-          <div style="font-size: 16px;">茌平县中医院 </div>
+          <div style="font-size: 16px;">聊城市茌平区中医医院 </div>
           <!-- <div style="font-size: 10px;">THE FIRST AFFILIATED HOSPITAL OF HARBIN MEDICAL UNIVERSITY</div> -->
         </div>
       </div>
@@ -33,7 +33,7 @@
         >
           <a href="javascript:0;" class="isCollapse-box" @click="menu_btn" v-if="isColl">
             <img src="../../assets/image/icon-s-l.png" class="isCollapse-i" />
-            <span class="isCollapse-s">茌平县中医院</span>
+            <span class="isCollapse-s">折叠面板</span>
           </a>
           <a href="javascript:0;" class="isCollapse-box" @click="menu_btn" v-else>
             <img src="../../assets/image/icon-s-r.png" class="isCollapse-i" />

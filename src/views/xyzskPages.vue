@@ -309,18 +309,7 @@ export default {
           let options_1 = res.data.data;
           let tagList = [];
           options_1.forEach(ele => {
-            if( 
-              ele.key == "Disease" || ele.key == "SickNess" 
-              || ele.key == "MedicineProduction" || ele.key == "Inspection" 
-              || ele.key == "Operation"|| ele.key == "Mission" 
-              || ele.key == "essentialDrugs" || ele.key == "MedicalInsuranceDrugEn"
-              || ele.key == "DrugOverdose" || ele.key == "Interact"
-              || ele.key == "XyPrescription" || ele.key == "DrugAnswers"
-              || ele.key == "Antidiastole" || ele.key == "DrugTarget"
-              || ele.key == "ClinicalPathway" || ele.key == "ClinicalTrial"
-            ){
-              tagList.push(ele)
-            }
+            tagList.push(ele)
           });
           that.options = tagList;  // 所有分类项
           let cur_tab = that.cur_tab;

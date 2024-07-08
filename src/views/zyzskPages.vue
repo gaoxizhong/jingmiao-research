@@ -263,9 +263,7 @@ export default {
           let options_1 = res.data.data;
           let tagList = [];
           options_1.forEach(ele => {
-            if( ele.key == "zySickNess" || ele.key == "CnMedicinalCrop" || ele.key == "Prescription" || ele.key == "ChannelCollateral" || ele.key == "Acupoint" || ele.key == "zyxdya"){
-              tagList.push(ele)
-            }
+            tagList.push(ele)
           });
           that.options = tagList;  // 所有分类项
           let cur_tab = that.cur_tab;

@@ -904,7 +904,7 @@
   flex: 1;
   // min-height: 520px;
   // max-height: 680px;
-  height: calc(100vh - 240px);
+  height: calc(100vh - 152px);
   padding: 0 10px;
   overflow-y: auto;
   position: relative; 

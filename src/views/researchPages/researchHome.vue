@@ -4,10 +4,10 @@
     <!-- 头部 开始  -->
     <el-header>
       <div class="l-content">
-        <img src="../../assets/image/logo.png" alt=""  @click="clickLoge"/>
+        <!-- <img src="../../assets/image/logo.png" alt=""  @click="clickLoge"/> -->
       </div>
       <div class="headerTitle-box">
-        <div class="headerTitle-home"  @click="clickLoge"><i class="el-icon-s-home"></i>首页</div>
+        <div class="headerTitle-home"></div>
         <div class="r-content" v-if="phone">
           <img src="../../assets/image/researchPages/img-user.png" title="个人中心" class="user-img" @click="goToUserCenter"/>
           <!-- <a href="javascript:0;" class="r-toLogin" @click="toLogin">退出</a> -->
@@ -53,21 +53,7 @@
             <el-menu-item index="/scholarAnalysis">学者分析</el-menu-item>
             <el-menu-item index="/journalAnalysis">期刊分析</el-menu-item>
           </el-submenu>
-          <el-submenu index="3">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span slot="title">知识库</span>
-            </template>
-            <el-menu-item index="/xyzskPages">西医知识库</el-menu-item>
-            <el-menu-item index="/zyzskPages">中医知识库</el-menu-item>
-            <el-menu-item index="/WesternMedicineCdss">西医CDSS</el-menu-item>
-          </el-submenu>
-          <el-menu-item>
-            <a href="http://192.168.51.2:18081/#/login?preUrl=whitelist-search-specialty" target="_blank" style="display: inline-block;width: 100%;height: 100%;">
-              <i class="el-icon-location"></i>
-             <span slot="title">科研大数据</span>
-            </a>
-          </el-menu-item>
+          
         </el-menu>
       </el-aside>
       <!-- 左侧导航 结束 -->
@@ -203,8 +189,9 @@
 .headerTitle-home{
   display: flex;
   align-items: center;
-  font-size: 15px;
-  color: #999;
+  font-size: 16px;
+  font-family:"PingFang SC", "Noto Sans SC", "微软雅黑", "黑体", Helvetica, Verdana, sans-serif;
+  color: #333;
   cursor: pointer;
 }
 /* ==============  滚动条样式   ==================== */
